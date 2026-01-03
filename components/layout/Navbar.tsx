@@ -40,6 +40,8 @@ export default function Navbar() {
     fetchUser();
   }, []);
 
+  
+
   return (
     <>
       <header className="sticky top-0 z-30 bg-white border-b">

@@ -15,7 +15,7 @@ interface UserProfile {
   email: string;
 }
 
-export default function ProfileModal({ open, onClose }: ProfileModalProps) {
+export default function AdminProfileModal({ open, onClose }: ProfileModalProps) {
   const router = useRouter();
 
   const [user, setUser] = useState<UserProfile | null>(null);
@@ -23,7 +23,7 @@ export default function ProfileModal({ open, onClose }: ProfileModalProps) {
 
   const userId =
     typeof window !== "undefined"
-      ? localStorage.getItem("userId")
+      ? localStorage.getItem("adminId")
       : null;
 
   useEffect(() => {
@@ -37,13 +37,12 @@ export default function ProfileModal({ open, onClose }: ProfileModalProps) {
           `https://bookingevents.onrender.com/api/auth/${userId}`,
           {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
+              Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
             },
           }
         );
 
         setUser(res.data);
-        localStorage.setItem("Profile", res.data);
       } catch (error) {
         console.error("Failed to load profile", error);
       } finally {

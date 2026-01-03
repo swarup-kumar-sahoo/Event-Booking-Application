@@ -24,11 +24,21 @@ export default function AdminLoginPage() {
         {
           email,
           password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
       );
 
-      // ✅ Save admin auth
+      if(res.data.role !== "ROLE_ADMIN"){
+        setError("You are not an Admin");
+        return;
+      }
+      // // ✅ Save admin auth
       localStorage.setItem("adminToken", res.data.token);
+      localStorage.setItem("adminId", res.data.userId);
       localStorage.setItem("isAdmin", "true");
 
       router.push("/admin");

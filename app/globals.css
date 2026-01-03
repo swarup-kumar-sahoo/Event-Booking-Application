@@ -31,3 +31,18 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+.input {
+  @apply w-full border rounded-lg px-4 py-2 text-black focus:ring-2 focus:ring-indigo-500 outline-none;
+}
+.label {
+  @apply block text-sm font-semibold text-gray-700 mb-1;
+}
+.btn-primary {
+  @apply px-6 py-3 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700 flex items-center justify-center gap-2;
+}
+.btn-secondary {
+  @apply px-6 py-3 rounded-lg border font-semibold text-gray-700 hover:bg-gray-100;
+}
+.loader {
+  @apply w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin;
+}
